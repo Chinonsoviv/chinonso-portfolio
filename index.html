@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chinonso Vivian Ojeri | Cloud & DevOps Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628;
+      --navy2: #0d1f3c;
+      --navy3: #112244;
+      --gold: #c9a84c;
+      --gold2: #e8c96a;
+      --teal: #00d4ff;
+      --text: #e8edf5;
+      --muted: #8899bb;
+      --border: rgba(201,168,76,0.2);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--navy); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle, rgba(0,212,255,0.08) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; z-index: 0; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,22,40,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1.3rem; background: linear-gradient(135deg, var(--gold), var(--gold2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy) !important; padding: 0.5rem 1.3rem; border-radius: 8px; font-weight: 700 !important; }
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 8rem 2rem 4rem; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); }
+    .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.8rem; font-weight: 900; line-height: 1.05; margin-bottom: 1rem; }
+    .hero h1 span { background: linear-gradient(135deg, var(--gold), var(--gold2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-title { font-size: 1.2rem; color: var(--teal); font-weight: 600; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-desc { color: var(--muted); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.8; max-width: 540px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+    .hero-tag { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); color: var(--teal); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.78rem; font-weight: 500; }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy); padding: 0.85rem 2rem; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: opacity 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-gold:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--text); padding: 0.85rem 2rem; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 0.95rem; border: 1px solid var(--border); transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-photo-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
+    .hex-frame { width: 320px; height: 370px; position: relative; }
+    .hex-frame::before { content: ''; position: absolute; inset: -3px; background: linear-gradient(135deg, var(--gold), var(--teal), var(--gold2)); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); z-index: 0; }
+    .hex-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); position: relative; z-index: 1; }
+    .pipeline { display: flex; gap: 0; margin-top: 2.5rem; align-items: center; }
+    .pipe-step { background: var(--navy3); border: 1px solid var(--border); padding: 0.5rem 1rem; font-size: 0.78rem; font-weight: 700; color: var(--gold); letter-spacing: 0.5px; position: relative; }
+    .pipe-step:not(:last-child)::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--teal); font-size: 1rem; z-index: 1; }
+    .pipe-step:first-child { border-radius: 8px 0 0 8px; }
+    .pipe-step:last-child { border-radius: 0 8px 8px 0; }
+    section { position: relative; z-index: 1; padding: 5rem 2rem; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label { font-size: 0.78rem; font-weight: 700; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem; }
+    .section-title span { background: linear-gradient(135deg, var(--gold), var(--gold2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .section-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 3rem; max-width: 500px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .about-text p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-size: 0.95rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-box { background: rgba(201,168,76,0.05); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: center; transition: transform 0.2s; }
+    .stat-box:hover { transform: translateY(-4px); }
+    .stat-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--gold), var(--gold2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-box p { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .project-card { background: rgba(13,31,60,0.8); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: all 0.3s; position: relative; overflow: hidden; }
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--teal)); opacity: 0; transition: opacity 0.3s; }
+    .project-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.4); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .project-card:hover::before { opacity: 1; }
+    .project-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.2rem; }
+    .project-badge { display: inline-block; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); color: var(--teal); padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.7rem; color: var(--text); }
+    .project-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.2rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+    .project-tag { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: var(--gold); padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.7rem; font-weight: 600; }
+    .project-links { display: flex; gap: 0.8rem; }
+    .project-links a { display: flex; align-items: center; gap: 0.4rem; color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: color 0.2s; }
+    .project-links a:hover { color: var(--gold); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .skill-category { background: rgba(13,31,60,0.8); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
+    .skill-category h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .skill-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; }
+    .skill-name { font-size: 0.85rem; color: var(--text); }
+    .skill-bar-wrap { width: 100px; height: 5px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
+    .skill-bar { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--gold), var(--teal)); }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--gold), var(--teal), transparent); }
+    .timeline-item { position: relative; padding-bottom: 2.5rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -2.4rem; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); border: 2px solid var(--navy); box-shadow: 0 0 0 3px rgba(201,168,76,0.3); }
+    .timeline-date { font-size: 0.78rem; color: var(--teal); font-weight: 600; margin-bottom: 0.3rem; }
+    .timeline-role { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.2rem; }
+    .timeline-company { font-size: 0.88rem; color: var(--gold); font-weight: 600; margin-bottom: 0.7rem; }
+    .timeline-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+    .timeline-tag { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); color: var(--teal); padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.7rem; font-weight: 600; }
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-info h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+    .contact-info p { color: var(--muted); font-size: 0.92rem; line-height: 1.8; margin-bottom: 2rem; }
+    .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .contact-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(201,168,76,0.1); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1rem; flex-shrink: 0; }
+    .contact-item a { color: var(--text); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .contact-item a:hover { color: var(--gold); }
+    .social-links { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+    .social-link { width: 42px; height: 42px; border-radius: 10px; background: rgba(201,168,76,0.08); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 1rem; transition: all 0.2s; }
+    .social-link:hover { background: rgba(201,168,76,0.15); color: var(--gold); border-color: var(--gold); }
+    .contact-form { background: rgba(13,31,60,0.8); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.82rem; color: var(--muted); font-weight: 600; margin-bottom: 0.4rem; }
+    .form-group input, .form-group textarea { width: 100%; background: rgba(10,22,40,0.8); border: 1px solid var(--border); color: var(--text); padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.9rem; outline: none; transition: border 0.2s; font-family: 'Inter', sans-serif; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy); border: none; padding: 0.9rem; border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: opacity 0.2s; font-family: 'Inter', sans-serif; }
+    .form-submit:hover { opacity: 0.9; }
+    footer { background: rgba(10,22,40,0.9); border-top: 1px solid var(--border); padding: 2rem; text-align: center; position: relative; z-index: 1; }
+    footer p { color: var(--muted); font-size: 0.85rem; }
+    footer span { color: var(--gold); font-weight: 600; }
+    .divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0; }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 2.5rem; }
+      .hex-frame { width: 220px; height: 260px; }
+      .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+      .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">CVojeri</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><i class="fas fa-certificate"></i> Certified Cloud and DevOps Engineer</div>
+        <h1>Chinonso<br/><span>Vivian Ojeri</span></h1>
+        <div class="hero-title"><i class="fas fa-cog"></i> Cloud and DevOps Engineer</div>
+        <p class="hero-desc">Specialized in AWS, Azure, CI/CD, Infrastructure as Code, Kubernetes, Docker, Linux, and Monitoring. Optimizing Infrastructure. Automating Workflows. Building the Future.</p>
+        <div class="hero-tags">
+          <span class="hero-tag">☁️ AWS</span>
+          <span class="hero-tag">☁️ Azure</span>
+          <span class="hero-tag">⚙️ CI/CD</span>
+          <span class="hero-tag">🏗️ Terraform</span>
+          <span class="hero-tag">☸️ Kubernetes</span>
+          <span class="hero-tag">🐳 Docker</span>
+          <span class="hero-tag">🐧 Linux</span>
+          <span class="hero-tag">📊 Monitoring</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-gold"><i class="fas fa-folder-open"></i> View Projects</a>
+          <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Get In Touch</a>
+        </div>
+        <div class="pipeline">
+          <div class="pipe-step">BUILD</div>
+          <div class="pipe-step">TEST</div>
+          <div class="pipe-step">DEPLOY</div>
+          <div class="pipe-step">MONITOR</div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hex-frame">
+          <img src="photo.jpg" alt="Chinonso Vivian Ojeri" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">Who I Am</p>
+      <h2 class="section-title">About <span>Me</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I am Chinonso Vivian Ojeri, a Certified Cloud and DevOps Engineer with a passion for building scalable, secure, and highly available infrastructure on the cloud. I specialize in designing and deploying cloud architectures that solve real world problems.</p>
+          <p>My expertise spans across Amazon Web Services (AWS) and Microsoft Azure, where I architect solutions using Infrastructure as Code with Terraform, container orchestration with Kubernetes, and automated CI/CD pipelines that take code from development to production seamlessly.</p>
+          <p>I have completed internships at both Pinnacle Labs and CodeAlpha, where I built and deployed real world cloud and DevOps projects. I believe technology should solve real problems and I build with that philosophy every day.</p>
+          <p style="color: var(--gold); font-style: italic; font-weight: 500; margin-top: 1.5rem;">"Optimizing Infrastructure, Automating Workflows. Let's Connect."</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-box"><h3>10+</h3><p>Cloud Projects Deployed</p></div>
+          <div class="stat-box"><h3>2</h3><p>Cloud Platforms AWS and Azure</p></div>
+          <div class="stat-box"><h3>3</h3><p>Internships Completed</p></div>
+          <div class="stat-box"><h3>∞</h3><p>Willingness to Learn</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label">What I Built</p>
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+      <p class="section-desc">Real cloud applications built and deployed from scratch</p>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-icon" style="background: rgba(201,168,76,0.1);">🏦</div>
+          <span class="project-badge">Capstone Project</span>
+          <h3>Aceglobal Bank — 3-Tier Banking Application</h3>
+          <p>Deployed a production grade 3-tier banking application on AWS using Kubernetes for container orchestration and Terraform for Infrastructure as Code. Includes frontend, backend, and database tiers with full CI/CD pipeline automation.</p>
+          <div class="project-tags">
+            <span class="project-tag">AWS</span>
+            <span class="project-tag">Kubernetes</span>
+            <span class="project-tag">Terraform</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">CI/CD</span>
+            <span class="project-tag">IaC</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/orgs/Aceglobal01/repositories" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon" style="background: rgba(0,212,255,0.1);">🚌</div>
+          <span class="project-badge">Full Stack Cloud App</span>
+          <h3>Mitchelle Transportation LTD</h3>
+          <p>A cloud-powered bus ticketing and payment system for travelers across Nigeria. Features real time booking, 6 payment options including OPay, PalmPay, USSD, and Pay on Arrival, live bus tracking, and an admin dashboard with analytics.</p>
+          <div class="project-tags">
+            <span class="project-tag">React.js</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">AWS DynamoDB</span>
+            <span class="project-tag">Express.js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Chinonsoviv/mitchelle-transportation" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon" style="background: rgba(255,107,107,0.1);">🛍️</div>
+          <span class="project-badge">Live on AWS S3</span>
+          <h3>Spiffy Store's E-Commerce</h3>
+          <p>A full stack e-commerce platform with 6 product categories, shopping cart, wishlist, 7 payment methods including OPay, PalmPay, PayPal, Moniepoint, USSD, and Cash, automated email notifications, and admin dashboard. Hosted live on AWS S3.</p>
+          <div class="project-tags">
+            <span class="project-tag">React.js</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">AWS S3</span>
+            <span class="project-tag">AWS DynamoDB</span>
+            <span class="project-tag">EmailJS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Chinonsoviv/spiffy-stores" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="http://spiffy-stores-website.s3-website-us-west-2.amazonaws.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon" style="background: rgba(6,214,160,0.1);">✅</div>
+          <span class="project-badge">Cloud Attendance</span>
+          <h3>Chivio Attendance System</h3>
+          <p>A cloud-based attendance tracking system that automates record-keeping for organizations in real time. Features a beautiful dark dashboard, live attendance rate calculation, daily overview charts, and AWS DynamoDB cloud storage.</p>
+          <div class="project-tags">
+            <span class="project-tag">React.js</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">AWS DynamoDB</span>
+            <span class="project-tag">Express.js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Chinonsoviv/chivio-attendance-system" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon" style="background: rgba(168,85,247,0.1);">🔐</div>
+          <span class="project-badge">CodeAlpha Project</span>
+          <h3>SQL Injection Detection System</h3>
+          <p>A cloud system that secures user data against SQL injection attacks using AES-256 encryption to securely store user credentials. Implements a double-layer security protocol to prevent data leaks and is accessible over the internet.</p>
+          <div class="project-tags">
+            <span class="project-tag">Cloud Security</span>
+            <span class="project-tag">AES-256</span>
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">AWS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Chinonsoviv" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon" style="background: rgba(0,212,255,0.1);">⚙️</div>
+          <span class="project-badge">CodeAlpha DevOps</span>
+          <h3>CI/CD Pipeline using Azure</h3>
+          <p>Built an automated CI/CD pipeline using Azure Pipelines with Azure Container Registry for container storage and Azure App Service for deployment. Monitors jobs to ensure smooth execution with automated build and deployment processes.</p>
+          <div class="project-tags">
+            <span class="project-tag">Azure Pipelines</span>
+            <span class="project-tag">Azure ACR</span>
+            <span class="project-tag">Azure App Service</span>
+            <span class="project-tag">CI/CD</span>
+            <span class="project-tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Chinonsoviv" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label">What I Know</p>
+      <h2 class="section-title">Technical <span>Skills</span></h2>
+      <p class="section-desc">Technologies and tools I work with every day</p>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4><i class="fas fa-cloud"></i> Cloud Platforms</h4>
+          <div class="skill-item"><span class="skill-name">☁️ AWS</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">☁️ Azure</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">🗄️ AWS DynamoDB</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">🪣 AWS S3</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+        </div>
+        <div class="skill-category">
+          <h4><i class="fas fa-cogs"></i> DevOps and IaC</h4>
+          <div class="skill-item"><span class="skill-name">🏗️ Terraform</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">☸️ Kubernetes</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">🐳 Docker</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:87%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">⚙️ CI/CD Pipelines</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">🔧 Jenkins</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+        </div>
+        <div class="skill-category">
+          <h4><i class="fas fa-code"></i> Development</h4>
+          <div class="skill-item"><span class="skill-name">⚛️ React.js</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">🟢 Node.js</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">🐧 Linux</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">☕ Java/Gradle</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">📊 Monitoring</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section id="experience">
+    <div class="section-inner">
+      <p class="section-label">My Journey</p>
+      <h2 class="section-title">Work <span>Experience</span></h2>
+      <p class="section-desc">My professional journey in cloud and DevOps</p>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">2026 — Present</div>
+          <div class="timeline-role">Cloud and DevOps Engineer Intern</div>
+          <div class="timeline-company">Pinnacle Labs</div>
+          <div class="timeline-desc">Building and deploying full stack cloud applications using React.js, Node.js, and AWS services. Implementing DevOps best practices including CI/CD pipelines, Infrastructure as Code with Terraform, and container orchestration with Kubernetes. Delivered multiple production-ready cloud projects including a bus ticketing system, e-commerce platform, and attendance management system.</div>
+          <div class="timeline-tags">
+            <span class="timeline-tag">AWS</span>
+            <span class="timeline-tag">React.js</span>
+            <span class="timeline-tag">Node.js</span>
+            <span class="timeline-tag">Terraform</span>
+            <span class="timeline-tag">Kubernetes</span>
+            <span class="timeline-tag">Docker</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2025 — 2026</div>
+          <div class="timeline-role">Cloud Computing and DevOps Engineer Intern</div>
+          <div class="timeline-company">CodeAlpha</div>
+          <div class="timeline-desc">Completed two internship tracks simultaneously covering Cloud Computing and DevOps engineering. Built and deployed 8 real world projects including a Data Redundancy Removal System, SQL Injection Detection System, Cloud-Based Bus Pass System, AI Chatbot, CI/CD Pipeline on Azure, Jenkins Remoting Project, Java application with Gradle, and a Dockerized Web Server.</div>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Azure</span>
+            <span class="timeline-tag">Docker</span>
+            <span class="timeline-tag">Jenkins</span>
+            <span class="timeline-tag">CI/CD</span>
+            <span class="timeline-tag">Gradle</span>
+            <span class="timeline-tag">Cloud Computing</span>
+            <span class="timeline-tag">DevOps</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2024 — 2025</div>
+          <div class="timeline-role">Cloud Engineering Student</div>
+          <div class="timeline-company">Digital Witch (AceGlobal)</div>
+          <div class="timeline-desc">Completed intensive cloud engineering training where I designed and deployed a production-grade 3-tier banking application on AWS using Kubernetes and Terraform. Gained hands on experience with cloud architecture, container orchestration, Infrastructure as Code, and DevOps workflows.</div>
+          <div class="timeline-tags">
+            <span class="timeline-tag">AWS</span>
+            <span class="timeline-tag">Kubernetes</span>
+            <span class="timeline-tag">Terraform</span>
+            <span class="timeline-tag">Docker</span>
+            <span class="timeline-tag">CI/CD</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">Lets Talk</p>
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <h3>I would love to hear from you!</h3>
+          <p>Whether you are a recruiter looking for a cloud engineer, a founder with an exciting project, or a fellow developer wanting to collaborate, my inbox is always open. Let us build something amazing together.</p>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <a href="mailto:chinonsovivianojeri@gmail.com">chinonsovivianojeri@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+            <a href="https://linkedin.com/in/chinonso-vivian-ojeri" target="_blank">linkedin.com/in/chinonso-vivian-ojeri</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-github"></i></div>
+            <a href="https://github.com/Chinonsoviv" target="_blank">github.com/Chinonsoviv</a>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/Chinonsoviv" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/chinonso-vivian-ojeri" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:chinonsovivianojeri@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="e.g. John Doe" /></div>
+          <div class="form-group"><label>Your Email</label><input type="email" placeholder="your@email.com" /></div>
+          <div class="form-group"><label>Subject</label><input type="text" placeholder="e.g. Job Opportunity" /></div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project or opportunity..."></textarea></div>
+          <button class="form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Designed and built by <span>Chinonso Vivian Ojeri</span> · Cloud and DevOps Engineer · <span>2026</span></p>
+    <p style="margin-top: 0.5rem; font-size: 0.78rem;">Hosted on <span>AWS S3</span> · Optimizing Infrastructure, Automating Workflows</p>
+  </footer>
+
+</body>
+</html>
